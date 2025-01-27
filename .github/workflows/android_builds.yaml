@@ -14,7 +14,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
-          distribution: 'openjdk' # Or 'temurin', 'openjdk'
+          distribution: 'zulu' # Or 'temurin', 'openjdk'
           java-version: '1.8' # Use the Java version your project requires
 
       - name: Build and install dependencies
