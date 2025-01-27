@@ -26,7 +26,7 @@ android {
             // Get the API keys from local.properties
             val properties = Properties()
             properties.load(project.rootProject.file("local.properties").inputStream())
-            buildConfigField("String", "NEWS_API_KEY", properties.getProperty("NEWS_API_KEY"))
+            buildConfigField("String", "NEWS_API_KEY", "\"${properties.getProperty("NEWS_API_KEY")}\"")
         }
     }
 
