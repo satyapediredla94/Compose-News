@@ -1,0 +1,23 @@
+name: Android Build
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu' # Or 'temurin', 'openjdk'
+          java-version: '11' # Use the Java version your project requires
+
+      - name: Build and install dependencies
+        run: |
+          chmod +x ./gradlew
+          ./gradlew clean build

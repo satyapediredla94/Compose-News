@@ -1,5 +1,6 @@
 package com.example.composenews.view.home.recommended
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -47,6 +49,7 @@ fun HomeArticle(
             modifier
                 .fillMaxSize()
                 .clip(RoundedCornerShape(10.dp))
+                .background(color = MaterialTheme.colorScheme.background)
         ) {
             AsyncImage(
                 modifier = Modifier
@@ -74,7 +77,8 @@ fun HomeArticle(
                     overflow = TextOverflow.Ellipsis,
                     color = MaterialTheme.colorScheme.onBackground,
                     style = MaterialTheme.typography.bodyLarge,
-                    modifier = Modifier.padding(top = 4.dp)
+                    modifier = Modifier.padding(top = 4.dp),
+                    fontWeight = FontWeight.SemiBold
                 )
                 if (article.authorImage.isNotEmpty()) {
                     Row(modifier = modifier.fillMaxWidth()) {
