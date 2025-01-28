@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -27,7 +26,10 @@ fun NavigationalTopBar(
             .fillMaxWidth()
             .padding(16.dp)
     ) {
-        IconButton(onClick = { onNavIconClick() }) {
+        IconButton(
+            modifier = Modifier.padding(top = 16.dp),
+            onClick = { onNavIconClick() }
+        ) {
             Icon(imageVector = icon, contentDescription = contentDescription)
         }
     }

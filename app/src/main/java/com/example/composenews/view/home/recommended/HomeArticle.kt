@@ -1,7 +1,6 @@
 package com.example.composenews.view.home.recommended
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -10,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -28,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.composenews.domain.model.Article
+import com.example.composenews.view.common.Author
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -81,30 +80,7 @@ fun HomeArticle(
                     fontWeight = FontWeight.SemiBold
                 )
                 if (article.authorImage.isNotEmpty()) {
-                    Row(modifier = modifier.fillMaxWidth()) {
-                        AsyncImage(
-                            modifier = Modifier
-                                .padding(top = 8.dp)
-                                .height(25.dp)
-                                .width(25.dp)
-                                .border(
-                                    width = 1.dp,
-                                    color = MaterialTheme.colorScheme.onBackground,
-                                    shape = RoundedCornerShape(15.dp)
-                                )
-                                .clip(RoundedCornerShape(15.dp)),
-                            model = article.authorImage,
-                            contentDescription = ""
-                        )
-                        Text(
-                            text = article.author,
-                            color = MaterialTheme.colorScheme.onBackground,
-                            style = MaterialTheme.typography.bodySmall,
-                            modifier = Modifier
-                                .padding(top = 8.dp, start = 4.dp)
-                                .align(Alignment.CenterVertically)
-                        )
-                    }
+                    Author(author = article.author, authorImage = article.authorImage)
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
                         text = article.publishedAt,

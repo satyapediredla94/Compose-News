@@ -12,15 +12,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.composenews.domain.model.Article
 import com.example.composenews.view.home.breaking.BreakingNews
 import com.example.composenews.view.home.recommended.HomeArticle
-import com.example.composenews.viewmodel.HomeScreenViewModel
+import com.example.composenews.view.home.viewmodel.HomeScreenViewModel
 
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
     navController: NavHostController,
-    uiState: HomeScreenViewModel.UiState
+    uiState: HomeScreenViewModel.UiState,
+    onArticleClick: (Article) -> Unit
 ) {
     if (uiState.articles.isNotEmpty()) {
         Column(
@@ -38,7 +40,7 @@ fun HomeScreen(
                 modifier = Modifier.fillMaxWidth(),
                 articles = uiState.articles.take(10)
             ) {
-                //TODO: Navigate to article
+                onArticleClick(it)
             }
             if (uiState.articles.size > 10) {
                 Column(modifier = Modifier.fillMaxSize()) {
@@ -55,7 +57,7 @@ fun HomeScreen(
                     ) {
                         items(uiState.articles.subList(10, uiState.articles.size)) { article ->
                             HomeArticle(article = article) {
-                                //TODO: Navigate to article
+                                onArticleClick(it)
                             }
                         }
                     }

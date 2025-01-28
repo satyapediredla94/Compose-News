@@ -1,4 +1,4 @@
-package com.example.composenews.viewmodel
+package com.example.composenews.view.home.viewmodel
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel

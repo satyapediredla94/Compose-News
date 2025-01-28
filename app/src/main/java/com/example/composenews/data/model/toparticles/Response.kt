@@ -1,4 +1,4 @@
-package com.example.composenews.data.model
+package com.example.composenews.data.model.toparticles
 
 data class Response(
     val currentPage: Int,

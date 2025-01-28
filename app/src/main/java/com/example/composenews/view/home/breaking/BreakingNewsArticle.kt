@@ -1,6 +1,7 @@
 package com.example.composenews.view.home.breaking
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -34,6 +35,7 @@ fun BreakingNewsArticle(
             .height(200.dp)
             .fillMaxSize()
             .padding(8.dp)
+            .clickable { onClick(article) }
     ) {
         Box(modifier = Modifier.fillMaxWidth()) {
             AsyncImage(

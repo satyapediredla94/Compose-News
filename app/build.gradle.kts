@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.kotlin.parcelize)
 }
 
 android {
@@ -26,7 +27,11 @@ android {
             // Get the API keys from local.properties
             val properties = Properties()
             properties.load(project.rootProject.file("local.properties").inputStream())
-            buildConfigField("String", "NEWS_API_KEY", "\"${properties.getProperty("NEWS_API_KEY")}\"")
+            buildConfigField(
+                "String",
+                "NEWS_API_KEY",
+                "\"${properties.getProperty("NEWS_API_KEY")}\""
+            )
         }
     }
 
@@ -94,4 +99,5 @@ dependencies {
     kapt(libs.hilt.compiler)
 
     implementation(libs.coil)
+    implementation(libs.androidx.palette)
 }

@@ -10,6 +10,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.composenews.view.navigation.BottomNavigationBar
 import com.example.composenews.view.navigation.NavigationalTopBar
+import com.example.composenews.view.navigation.NewsDestination
 import com.example.composenews.view.navigation.NewsDestination.Home
 import com.example.composenews.view.navigation.NewsNavigationGraph
 
@@ -19,7 +20,10 @@ fun ComposeNewsApp(modifier: Modifier = Modifier) {
     val backStackEntry by navController.currentBackStackEntryAsState()
     Scaffold(
         topBar = {
-            if (backStackEntry?.destination?.id != navController.graph.startDestinationId) {
+            if (
+                backStackEntry?.destination?.id != navController.graph.startDestinationId &&
+                backStackEntry?.destination?.route != NewsDestination.Details.route
+            ) {
                 NavigationalTopBar(navController = navController)
             }
         },
